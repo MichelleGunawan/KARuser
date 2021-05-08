@@ -1,3 +1,4 @@
+  
 type User @model {
   id: ID!
   username: String!
@@ -8,7 +9,7 @@ type User @model {
 }
 
 type Car @model
-{
+  @key(name: "byUser", fields: ["userId"]) {
   id: ID!
   type: String!
   latitude: Float,
@@ -17,6 +18,9 @@ type Car @model
   isActive: Boolean
 
   orders: [Order] @connection(keyName: "byCar", fields: ["id"])
+
+  userId: ID!
+  user: User @connection(fields: ["userId"])
 }
 
 type Order @model
@@ -39,4 +43,9 @@ type Order @model
 
   carId: ID!
   car: Car @connection(fields: ["carId"])
+}
+
+type Subscription {
+  onOrderUpdated(id: ID!): Order @aws_subscribe(mutations: ["updateOrder"])
+  onCarUpdated(id: ID!): Car @aws_subscribe(mutations: ["updateCar"])
 }

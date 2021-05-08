@@ -1,6 +1,117 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const onOrderUpdated = /* GraphQL */ `
+  subscription OnOrderUpdated($id: ID!) {
+    onOrderUpdated(id: $id) {
+      id
+      createdAt
+      type
+      status
+      originLatitude
+      originLongitude
+      destLatitude
+      destLongitude
+      userId
+      user {
+        id
+        username
+        email
+        orders {
+          nextToken
+        }
+        car {
+          id
+          type
+          latitude
+          longitude
+          heading
+          isActive
+          userId
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      carId
+      car {
+        id
+        type
+        latitude
+        longitude
+        heading
+        isActive
+        orders {
+          nextToken
+        }
+        userId
+        user {
+          id
+          username
+          email
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      updatedAt
+    }
+  }
+`;
+export const onCarUpdated = /* GraphQL */ `
+  subscription OnCarUpdated($id: ID!) {
+    onCarUpdated(id: $id) {
+      id
+      type
+      latitude
+      longitude
+      heading
+      isActive
+      orders {
+        items {
+          id
+          createdAt
+          type
+          status
+          originLatitude
+          originLongitude
+          destLatitude
+          destLongitude
+          userId
+          carId
+          updatedAt
+        }
+        nextToken
+      }
+      userId
+      user {
+        id
+        username
+        email
+        orders {
+          nextToken
+        }
+        car {
+          id
+          type
+          latitude
+          longitude
+          heading
+          isActive
+          userId
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const onCreateUser = /* GraphQL */ `
   subscription OnCreateUser {
     onCreateUser {
@@ -32,6 +143,14 @@ export const onCreateUser = /* GraphQL */ `
         isActive
         orders {
           nextToken
+        }
+        userId
+        user {
+          id
+          username
+          email
+          createdAt
+          updatedAt
         }
         createdAt
         updatedAt
@@ -73,6 +192,14 @@ export const onUpdateUser = /* GraphQL */ `
         orders {
           nextToken
         }
+        userId
+        user {
+          id
+          username
+          email
+          createdAt
+          updatedAt
+        }
         createdAt
         updatedAt
       }
@@ -113,6 +240,14 @@ export const onDeleteUser = /* GraphQL */ `
         orders {
           nextToken
         }
+        userId
+        user {
+          id
+          username
+          email
+          createdAt
+          updatedAt
+        }
         createdAt
         updatedAt
       }
@@ -146,6 +281,28 @@ export const onCreateCar = /* GraphQL */ `
         }
         nextToken
       }
+      userId
+      user {
+        id
+        username
+        email
+        orders {
+          nextToken
+        }
+        car {
+          id
+          type
+          latitude
+          longitude
+          heading
+          isActive
+          userId
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
       createdAt
       updatedAt
     }
@@ -176,6 +333,28 @@ export const onUpdateCar = /* GraphQL */ `
         }
         nextToken
       }
+      userId
+      user {
+        id
+        username
+        email
+        orders {
+          nextToken
+        }
+        car {
+          id
+          type
+          latitude
+          longitude
+          heading
+          isActive
+          userId
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
       createdAt
       updatedAt
     }
@@ -205,6 +384,28 @@ export const onDeleteCar = /* GraphQL */ `
           updatedAt
         }
         nextToken
+      }
+      userId
+      user {
+        id
+        username
+        email
+        orders {
+          nextToken
+        }
+        car {
+          id
+          type
+          latitude
+          longitude
+          heading
+          isActive
+          userId
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
       }
       createdAt
       updatedAt
@@ -237,6 +438,7 @@ export const onCreateOrder = /* GraphQL */ `
           longitude
           heading
           isActive
+          userId
           createdAt
           updatedAt
         }
@@ -253,6 +455,14 @@ export const onCreateOrder = /* GraphQL */ `
         isActive
         orders {
           nextToken
+        }
+        userId
+        user {
+          id
+          username
+          email
+          createdAt
+          updatedAt
         }
         createdAt
         updatedAt
@@ -287,6 +497,7 @@ export const onUpdateOrder = /* GraphQL */ `
           longitude
           heading
           isActive
+          userId
           createdAt
           updatedAt
         }
@@ -303,6 +514,14 @@ export const onUpdateOrder = /* GraphQL */ `
         isActive
         orders {
           nextToken
+        }
+        userId
+        user {
+          id
+          username
+          email
+          createdAt
+          updatedAt
         }
         createdAt
         updatedAt
@@ -337,6 +556,7 @@ export const onDeleteOrder = /* GraphQL */ `
           longitude
           heading
           isActive
+          userId
           createdAt
           updatedAt
         }
@@ -353,6 +573,14 @@ export const onDeleteOrder = /* GraphQL */ `
         isActive
         orders {
           nextToken
+        }
+        userId
+        user {
+          id
+          username
+          email
+          createdAt
+          updatedAt
         }
         createdAt
         updatedAt
