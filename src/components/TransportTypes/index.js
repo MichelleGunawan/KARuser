@@ -25,7 +25,7 @@ const TransportTypes =({typeState, onSubmit}) =>{
             onPress={onSubmit} 
             style={{backgroundColor:'#9cbe85', padding: 10, margin: 10, alignItems:'center'}}>
                 <Text style={{color:"white", fontWeight: 'bold'}}>
-                    Confirm KÄRgo
+                    Confirm KÄR
                 </Text>
             </Pressable>
         </View>

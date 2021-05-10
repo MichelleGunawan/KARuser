@@ -30,6 +30,7 @@ const SearchResults =(props) =>{
         //submit to server
         try{
             const userInfo = await Auth.currentAuthenticatedUser();
+            console.log("user info");
             console.log(userInfo);
             console.log(originPlace)
             console.log(destinationPlace);
@@ -59,7 +60,8 @@ const SearchResults =(props) =>{
             );
 
             console.log(response);
-            Alert.alert("Hurraay", "Your order has been placed!",[{text:"Go home", onPress:() => navigation.navigate('Home')}])
+            navigation.navigate('OrderPage', {id: response.data.createOrder.id, originPlace, destinationPlace,})
+           // Alert.alert("Hurraay", "Your order has been placed!",[{text:"Go home", onPress:() => navigation.navigate('Home')}])
         }
         catch(e){
             console.error(e);

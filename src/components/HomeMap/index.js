@@ -10,6 +10,7 @@ import {listCars} from '../../graphql/queries';
 
 const HomeMap =(props) =>{
     const[cars, setCars] = useState([]);
+    const[initialRegion, setInitialRegion] =useState(null);
 
     useEffect(() => {
         const fetchCars = async () => {
@@ -25,8 +26,30 @@ const HomeMap =(props) =>{
               console.error(e);
             }
           };
-      
-          fetchCars();
+
+          const getCurrentLocation= async (event) => {
+            navigator.geolocation.getCurrentPosition(
+                position => {
+                let region = {
+                        latitude: parseFloat(position.coords.latitude),
+                        longitude: parseFloat(position.coords.longitude),
+                        latitudeDelta: .12,
+                        longitudeDelta: .10
+                    };
+                    setInitialRegion(region);
+                },
+                error => console.log(error),
+                {
+                    enableHighAccuracy: true,
+                    timeout: 5000,
+                    maximumAge: 1000
+                }
+            );
+        }
+        
+        getCurrentLocation();
+        fetchCars();
+        
         }, [])
 
     const getImage = (type) => {
@@ -44,17 +67,21 @@ const HomeMap =(props) =>{
         }
     }
 
+    console.log(initialRegion);
+    //console.log(initialRegion.latitude);
+
     return(
         <MapView
         style={{width: '100%', height: '100%'}}
         provider={ PROVIDER_GOOGLE }
         showUserLocation={true}
-        initialRegion={{
-        latitude: 28.450627,
-        longitude: -16.263045,
-        latitudeDelta: 0.0222,
-        longitudeDelta: 0.0121,
-        }}>
+        initialRegion={initialRegion}>
+
+        {/* <Marker
+            coordinate={{latitude: initialRegion.Latitude, longitude:initialRegion.Longitude}}
+            title={'Current Location'}
+            pinColor={"tan"}
+            /> */}
             
          {cars.map((car)=>(
              <Marker key={car.id} coordinate={{ latitude : car.latitude,  longitude : car.longitude, }}>

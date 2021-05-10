@@ -36,10 +36,9 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import HomeScreen from './src/screens/HomeScreen';
 import DestinationSearch from './src/screens/DestinationSearch';
 import SearchResults from './src/screens/SearchResults';
-import Router from './src/navigation/Root'
-import HomeNavigator from './src/navigation/HomeNavigator'
+import Router from './src/navigation/Root';
 
-import Amplify from 'aws-amplify';
+import Amplify,{Auth} from 'aws-amplify';
 import config from './src/aws-exports';
 Amplify.configure(config);
 
@@ -63,7 +62,7 @@ const App: () => Node = () => {
         }
       );
       if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-        console.log("You can now OTO!");
+        console.log("You can now KÄR!");
       } else {
         console.log("Camera permission denied");
       }
@@ -86,6 +85,8 @@ const App: () => Node = () => {
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
+
+  //console.log(Auth.currentUserInfo());
 
   return (
     <>
