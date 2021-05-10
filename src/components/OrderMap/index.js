@@ -64,12 +64,6 @@ const OrderMap = ({ car, origin, destination }) => {
             strokeColor="#9cbe85"
             /> 
             <Marker
-            coordinate={{latitude: origin.details.geometry.location.lat,
-                longitude: origin.details.geometry.location.lng,}}
-            title={'Origin'}
-            pinColor={"tan"}
-            />
-            <Marker
             coordinate={{latitude: destination.lat,
                 longitude: destination.lng}}
             title={"Destination"}

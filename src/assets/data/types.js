@@ -17,7 +17,7 @@ export default [
     id: '2',
     type: 'KarX',
     limit: '100 lb',
-    price:2.5,
+    price: 3.0,
     duration: 27,
   },
 ]

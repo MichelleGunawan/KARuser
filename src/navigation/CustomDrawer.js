@@ -5,6 +5,10 @@ import {Auth} from 'aws-amplify';
 import {DrawerContentScrollView, DrawerItemList} from "@react-navigation/drawer";
 
 const CustomDrawer = (props) => {
+  // console.log("auth")
+  // console.log(Auth.user.username)
+  console.log(Auth.user)
+
     return(
         <DrawerContentScrollView {...props}>
       <View style={{backgroundColor: '#858585', padding: 15}}>
@@ -23,8 +27,8 @@ const CustomDrawer = (props) => {
           }}/>
 
           <View>
-            <Text style={{color: '#9cbe85', fontSize: 20}}>First Last</Text>
-            <Text style={{color: '#fff'}}>5.00 *</Text>
+            <Text style={{color: '#9cbe85', fontSize: 20}}>{Auth.user.username}</Text>
+            {/* <Text style={{color: '#fff'}}>5.00 *</Text> */}
           </View>
         </View>
 
@@ -43,15 +47,8 @@ const CustomDrawer = (props) => {
           </Pressable>
         </View>
 
-        { /* Do more */}
-        <Pressable
-          onPress={() => {console.warn('Make Money Driving')}}>
-          <Text style={{color: '#fff', paddingVertical: 5,}}>Do more with your account</Text>
-        </Pressable>
-
-        {/* Make money */}
-        <Pressable onPress={() => {console.warn('Make Money Driving')}}>
-          <Text style={{color: '#fff', paddingVertical: 5}}>Make money driving</Text>
+        <Pressable onPress={() => {console.warn('Drive a KÄR')}}>
+          <Text style={{color: '#fff', paddingVertical: 5}}>Drive a KÄR</Text>
         </Pressable>
 
 

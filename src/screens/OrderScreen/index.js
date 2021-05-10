@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, Dimensions, Text } from "react-native";
+import { View, Dimensions, Text, Pressable } from "react-native";
 import OrderMap from "../../components/OrderMap";
 import { useRoute } from '@react-navigation/native';
 import { API, graphqlOperation } from 'aws-amplify';

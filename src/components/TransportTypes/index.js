@@ -6,18 +6,20 @@ import TransportTypeRow from '../TransportTypeRow'
 
 import types from '../../assets/data/types';
 
-const TransportTypes =({typeState, onSubmit}) =>{
+const TransportTypes =({typeState, distance, onSubmit}) =>{
 
     const[selectedType, setSelectedType] = typeState;
+
 
     return(
         <View>
             {types.map(type => 
             <TransportTypeRow 
             type={type} 
+            distance = {distance}
             key={type.id} 
             isSelected={type.type===selectedType}
-            onPress={() => setSelectedType(type.type)}
+            onPress={() => {setSelectedType(type.type)}}
             />
             )}
             

@@ -7,22 +7,36 @@ import HomeSearch from '../../components/HomeSearch'
 import useWindowDimensions from "react-native/Libraries/Utilities/useWindowDimensions";
 import{API, graphqlOperation, Auth} from 'aws-amplify';
 import{createOrder} from '../../graphql/mutations';
+import {getDistance} from 'geolib';
 
 import { useRoute, useNavigation } from '@react-navigation/native';
 
 const SearchResults =(props) =>{
     const typeState = useState(null);
+    //const priceState = useState(null);
+    //const [distance, setDistance] = useState(0);
+    
 
     const route = useRoute();
     const navigation = useNavigation();
-
     
     console.log(route.params);
     const {destinationPlace} = route.params;    
     const {originPlace} = route.params;
 
-    const onSubmit = async() =>{
+    var d = getDistance(
+            {latitude: originPlace.details.geometry.location.lat, longitude: originPlace.details.geometry.location.lng},
+            {latitude: destinationPlace.lat, longitude: destinationPlace.lng},
+          );
+    var distance = d/1000;
+    console.log("distance")
+    console.log(distance);
+
+    const onSubmit = async() =>{       
+        
         const[type]=typeState;
+        //const[price]=priceState;
+
         if(!type){
             return;
         }
@@ -75,7 +89,7 @@ const SearchResults =(props) =>{
         </View>
 
         <View style={{height:400}}>
-            <TransportTypes typeState={typeState} onSubmit={onSubmit}/>
+            <TransportTypes typeState={typeState} distance={distance} onSubmit={onSubmit}/>
         </View>
         </View>
     )

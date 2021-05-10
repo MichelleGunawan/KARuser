@@ -20,7 +20,9 @@ const HomeMap =(props) =>{
                   listCars
                 )
               )
-      
+                    
+              console.log("response")
+              console.log(response)
               setCars(response.data.listCars.items);
             } catch (e) {
               console.error(e);
@@ -46,10 +48,9 @@ const HomeMap =(props) =>{
                 }
             );
         }
-        
-        getCurrentLocation();
+                
         fetchCars();
-        
+        getCurrentLocation();
         }, [])
 
     const getImage = (type) => {
@@ -67,7 +68,7 @@ const HomeMap =(props) =>{
         }
     }
 
-    console.log(initialRegion);
+    //console.log(initialRegion);
     //console.log(initialRegion.latitude);
 
     return(
