@@ -26,15 +26,18 @@ const RootNavigator = (props) => {
             (<CustomDrawer{...props}/>)
             }>
             <Drawer.Screen name="Home" component={HomeNavigator} />
-            <Drawer.Screen name="Current Order">
-                {()=><DummyScreen name={"Current Order"}/>}
+            <Drawer.Screen name="Ongoing Orders">
+                {()=><DummyScreen name={"Ongoing Orders"}/>}
             </Drawer.Screen>
-            <Drawer.Screen name="Your Orders">
+            <Drawer.Screen name="Messages">
+                {()=><DummyScreen name={"Messages"}/>}
+            </Drawer.Screen>
+            {/* <Drawer.Screen name="Your Orders">
                 {()=><DummyScreen name={"Your Orders"}/>}
             </Drawer.Screen>
             <Drawer.Screen name="Settings">
                 {()=><DummyScreen name={"Settings"}/>}
-            </Drawer.Screen>
+            </Drawer.Screen> */}
         </Drawer.Navigator>
         </NavigationContainer>
     )

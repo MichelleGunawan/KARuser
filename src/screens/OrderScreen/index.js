@@ -6,6 +6,8 @@ import { API, graphqlOperation } from 'aws-amplify';
 import { getOrder, getCar } from '../../graphql/queries';
 import { onOrderUpdated, onCarUpdated } from './subscriptions';
 
+import styles from './styles.js';
+
 const OrderScreen = (props) => {
   const [car, setCar] = useState(null);
   const [order, setOrder] = useState(null);
@@ -80,23 +82,28 @@ const OrderScreen = (props) => {
     return () => subscription.unsubscribe();
   }, [order])
 
+  const onSubmit = async() =>{       
+    navigation.navigate('Home')  
+}
+
     return(
         <View>
           <View style={{height: Dimensions.get('window').height - 100}}>
             <OrderMap car={car} origin={originPlace} destination={destinationPlace} />
           </View>
-          <View style={{
-            height: 500, 
-            backgroundColor: "#f2f2f2",
-            marginTop: -30,
-            padding: 15,
-            borderTopLeftRadius:15,
-            borderTopRightRadius: 15,
-            flex: 1,
-            alignItems: "center"}}>
-            <Text style={{fontSize: 15, color:"#555"}}>Order status: {order?.status}</Text>            
-            <Text style={{fontSize: 15, color:"#555"}}>Order price: {order?.price}</Text>
-          </View>          
+          <View style={styles.orderContent}>
+            <Text style={styles.orderText}>Order status: {order?.status}</Text>            
+            <Text style={styles.orderText}>Order price: ${(order?.price).toFixed(2)}</Text>
+            <Pressable 
+            onPress={onSubmit} 
+            style={{backgroundColor:'#9cbe85', padding: 10, marginTop: 15, margin: 10, alignItems:'center'}}>
+                <Text style={{color:"white", fontWeight: 'bold'}}>
+                    KÄRGO again
+                </Text>
+            </Pressable> 
+          
+          </View>
+                   
         </View>
     )
 }

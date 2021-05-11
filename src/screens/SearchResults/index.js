@@ -15,7 +15,6 @@ import types from '../../assets/data/types';
 
 const SearchResults =(props) =>{
     const typeState = useState(null);
-    const [price, setPrice] = useState(0);
     
 
     const route = useRoute();
@@ -36,28 +35,24 @@ const SearchResults =(props) =>{
     const onSubmit = async() =>{       
         
         const[type]=typeState;
-        //const[price]=priceState;
 
         if(!type){
             return;
         }
 
-        console.log("type")
-        console.log(type)
-        if(type=="KarS"){
-            setPrice(types[0].price);
-            console.log("price")
-            console.log(price);
-        }
-        else if(type=="KarX"){
-            setPrice(types[2].price);
-            console.log("price")
-            console.log(price);
-        }
-        else{
-            setPrice(types[1].price);
-            console.log("price")
-            console.log(price);
+        const getPrice = (type) => {  
+            if(type==='KarS')
+            {
+                return types[0].price;
+            }
+            if(type=="KarX")
+            {
+                return types[2].price
+            }
+            else
+            {
+                return types[1].price;
+            }
         }
 
 
@@ -68,8 +63,6 @@ const SearchResults =(props) =>{
             console.log(userInfo);
             console.log(originPlace)
             console.log(destinationPlace);
-            console.log("price2")
-            console.log(price)
 
             const date = new Date();
             
@@ -83,7 +76,7 @@ const SearchResults =(props) =>{
                 destLongitude: destinationPlace.lng,
 
                 distance,
-                price: price,
+                price: getPrice(type),
 
                 username: userInfo.username,
 

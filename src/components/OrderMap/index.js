@@ -5,7 +5,11 @@ import MapViewDirections from 'react-native-maps-directions';
 
 const GOOGLE_MAPS_APIKEY = 'AIzaSyBkqeiDhW2DiRb_tZfrueJnyJFc2LecSgY'
 
-const OrderMap = ({ car, origin, destination }) => {
+const OrderMap = ({ car, origin, destination, originLatitude, originLongitude, destLatitude, destLongitude }) => {
+
+  console.log("originLatitude");
+  console.log(originLatitude);
+  console.log({originLatitude})
 
     const getImage = (type) => {
         if(type==='Kar')

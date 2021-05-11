@@ -43,7 +43,7 @@ const HomeMap =(props) =>{
             error => console.log(error),
             {
                 enableHighAccuracy: true,
-                timeout: 10000,
+                timeout: 15000,
                 maximumAge: 1000
             }
         );
