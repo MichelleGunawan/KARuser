@@ -12,43 +12,44 @@ const HomeMap =(props) =>{
     const[cars, setCars] = useState([]);
     const[initialRegion, setInitialRegion] =useState(null);
 
-    useEffect(() => {
-        const fetchCars = async () => {
-            try {
-              const response = await API.graphql(
-                graphqlOperation(
-                  listCars
-                )
-              )
-                    
-              console.log("response")
-              console.log(response)
-              setCars(response.data.listCars.items);
-            } catch (e) {
-              console.error(e);
-            }
-          };
 
-          const getCurrentLocation= async (event) => {
-            navigator.geolocation.getCurrentPosition(
-                position => {
-                let region = {
-                        latitude: parseFloat(position.coords.latitude),
-                        longitude: parseFloat(position.coords.longitude),
-                        latitudeDelta: .12,
-                        longitudeDelta: .10
-                    };
-                    setInitialRegion(region);
-                },
-                error => console.log(error),
-                {
-                    enableHighAccuracy: true,
-                    timeout: 5000,
-                    maximumAge: 1000
-                }
-            );
+    const fetchCars = async () => {
+        try {
+          const response = await API.graphql(
+            graphqlOperation(
+              listCars
+            )
+          )
+          
+          //console.log(response);
+
+          setCars(response.data.listCars.items);
+        } catch (e) {
+          console.error(e);
         }
-                
+      };
+
+      const getCurrentLocation= async (event) => {
+        navigator.geolocation.getCurrentPosition(
+            position => {
+            let region = {
+                    latitude: parseFloat(position.coords.latitude),
+                    longitude: parseFloat(position.coords.longitude),
+                    latitudeDelta: .12,
+                    longitudeDelta: .10
+                };
+                setInitialRegion(region);
+            },
+            error => console.log(error),
+            {
+                enableHighAccuracy: true,
+                timeout: 10000,
+                maximumAge: 1000
+            }
+        );
+    }
+
+    useEffect(() => {                        
         fetchCars();
         getCurrentLocation();
         }, [])
@@ -89,7 +90,7 @@ const HomeMap =(props) =>{
 
              <Image 
              style={
-                {width:50, height: 50, 
+                {width:45, height: 45, 
                 resizeMode: 'contain',
                 transform:[{
                     rotate:`${car.heading}deg`

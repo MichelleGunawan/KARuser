@@ -11,16 +11,17 @@ import {getDistance} from 'geolib';
 
 import { useRoute, useNavigation } from '@react-navigation/native';
 
+import types from '../../assets/data/types';
+
 const SearchResults =(props) =>{
     const typeState = useState(null);
-    //const priceState = useState(null);
-    //const [distance, setDistance] = useState(0);
+    const [price, setPrice] = useState(0);
     
 
     const route = useRoute();
     const navigation = useNavigation();
     
-    console.log(route.params);
+    //console.log(route.params);
     const {destinationPlace} = route.params;    
     const {originPlace} = route.params;
 
@@ -41,6 +42,25 @@ const SearchResults =(props) =>{
             return;
         }
 
+        console.log("type")
+        console.log(type)
+        if(type=="KarS"){
+            setPrice(types[0].price);
+            console.log("price")
+            console.log(price);
+        }
+        else if(type=="KarX"){
+            setPrice(types[2].price);
+            console.log("price")
+            console.log(price);
+        }
+        else{
+            setPrice(types[1].price);
+            console.log("price")
+            console.log(price);
+        }
+
+
         //submit to server
         try{
             const userInfo = await Auth.currentAuthenticatedUser();
@@ -48,6 +68,8 @@ const SearchResults =(props) =>{
             console.log(userInfo);
             console.log(originPlace)
             console.log(destinationPlace);
+            console.log("price2")
+            console.log(price)
 
             const date = new Date();
             
@@ -59,6 +81,11 @@ const SearchResults =(props) =>{
                 
                 destLatitude: destinationPlace.lat,
                 destLongitude: destinationPlace.lng,
+
+                distance,
+                price: price,
+
+                username: userInfo.username,
 
                 userId: userInfo.attributes.sub,
                 carId: "1",
@@ -84,11 +111,11 @@ const SearchResults =(props) =>{
 
     return(
         <View style={{display: 'flex', justifyContent: 'space-between'}}>
-        <View style={{height: Dimensions.get('window').height - 400}}>
+        <View style={{height: Dimensions.get('window').height - 360}}>
             <RouteMap origin={originPlace} destination={destinationPlace} />
         </View>
 
-        <View style={{height:400}}>
+        <View style={{height:400, marginTop: -27}}>
             <TransportTypes typeState={typeState} distance={distance} onSubmit={onSubmit}/>
         </View>
         </View>

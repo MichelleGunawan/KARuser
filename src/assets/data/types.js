@@ -2,7 +2,7 @@ export default [
   {
     id: '0',
     type: 'KarS',
-    limit: '20 lb',
+    limit: '10 lb',
     price: 1.50,
     duration: 45,
   },

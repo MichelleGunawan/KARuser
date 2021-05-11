@@ -52,7 +52,7 @@ const OrderMap = ({ car, origin, destination }) => {
       provider={PROVIDER_GOOGLE}
       showsUserLocation={true}
       initialRegion={region}>
-          <MapViewDirections
+          {/* <MapViewDirections
             origin={{
                 latitude: origin.details.geometry.location.lat,
                 longitude: origin.details.geometry.location.lng}}
@@ -62,7 +62,7 @@ const OrderMap = ({ car, origin, destination }) => {
             apikey={GOOGLE_MAPS_APIKEY}
             strokeWidth={5}
             strokeColor="#9cbe85"
-            /> 
+            />  */}
             <Marker
             coordinate={{latitude: destination.lat,
                 longitude: destination.lng}}

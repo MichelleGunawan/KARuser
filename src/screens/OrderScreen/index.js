@@ -82,11 +82,20 @@ const OrderScreen = (props) => {
 
     return(
         <View>
-          <View style={{height: Dimensions.get('window').height - 250}}>
+          <View style={{height: Dimensions.get('window').height - 100}}>
             <OrderMap car={car} origin={originPlace} destination={destinationPlace} />
           </View>
-          <View>
-            <Text>Order status: {order?.status}</Text>
+          <View style={{
+            height: 500, 
+            backgroundColor: "#f2f2f2",
+            marginTop: -30,
+            padding: 15,
+            borderTopLeftRadius:15,
+            borderTopRightRadius: 15,
+            flex: 1,
+            alignItems: "center"}}>
+            <Text style={{fontSize: 15, color:"#555"}}>Order status: {order?.status}</Text>            
+            <Text style={{fontSize: 15, color:"#555"}}>Order price: {order?.price}</Text>
           </View>          
         </View>
     )

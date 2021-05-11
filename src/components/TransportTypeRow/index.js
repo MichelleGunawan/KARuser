@@ -45,13 +45,13 @@ const TransportTypeRow =(props) =>{
                     <Text style={styles.limit}>{type.limit}</Text>
                 </Text>
                 <Text style={styles.time}>
-                    8:00PM drop off
+                    {distance.toFixed(1)} mi
                 </Text>
             </View>
 
             <View style={styles.rightContainer}>
                 <Ionicons name={'pricetag'} size={18} color={'#99d962'}/>
-                <Text style={styles.price}> ${(type.price*distance).toFixed(2)}</Text>
+                <Text style={styles.price}>est. ${((type.price*distance)+1).toFixed(2)}</Text>
             </View>
         </Pressable>
     )

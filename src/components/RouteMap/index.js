@@ -10,15 +10,15 @@ const RouteMap =({origin, destination}) =>{
     const [originLoc, setOriginLoc] = React.useState(null);
     const [destinationLoc, setDestinationLoc] = React.useState(null);
     const [region,setRegion] = React.useState(null);
-    console.log("origin")
-    console.log(origin);
-    console.log("destination")
-    console.log(destination);
+    // console.log("origin")
+    // console.log(origin);
+    // console.log("destination")
+    // console.log(destination);
 
-    console.log("origin lat")
-    console.log(origin.details.geometry.location.lat)
-    console.log("origin lng")
-    console.log(origin.details.geometry.location.lng)
+    // console.log("origin lat")
+    // console.log(origin.details.geometry.location.lat)
+    // console.log("origin lng")
+    // console.log(origin.details.geometry.location.lng)
 
 
     React.useEffect(()=>{

@@ -7,7 +7,7 @@ import {DrawerContentScrollView, DrawerItemList} from "@react-navigation/drawer"
 const CustomDrawer = (props) => {
   // console.log("auth")
   // console.log(Auth.user.username)
-  console.log(Auth.user)
+  // console.log(Auth.user)
 
     return(
         <DrawerContentScrollView {...props}>

@@ -3,8 +3,10 @@ import {StyleSheet} from 'react-native';
 const styles = StyleSheet.create({
     inputBox:{
         backgroundColor: "#e3e3e3",
+        height: 60,
         padding: 10,
         margin:10,
+        marginTop: 17,
         flexDirection: 'row', //line contents horizontally
         justifyContent: 'space-between',
         alignItems: 'center'

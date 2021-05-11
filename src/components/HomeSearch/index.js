@@ -19,15 +19,15 @@ const HomeSearch =(props) =>{
     return(
         <View>
             <Pressable onPress={goToSearch} style={styles.inputBox}>
-                <Text style={styles.inputText}>Where To?</Text>
-                <View style={styles.timeContainer}>
+                <Text style={styles.inputText}> KÄRGO Where? </Text>
+                {/* <View style={styles.timeContainer}>
                     <AntDesign name={"clockcircle"} size ={16} color={'#707070'}/>
                     <Text>Now</Text>
                     <MaterialIcons name={'keyboard-arrow-down'} size={16}/>
-                </View>
+                </View> */}
             </Pressable>
 
-            <View style={styles.row}>
+            {/* <View style={styles.row}>
                 <View style={styles.iconContainer}>
                 <AntDesign name={"clockcircle"} size ={16} color={'#fff'}/>
                 </View>
@@ -39,7 +39,7 @@ const HomeSearch =(props) =>{
                 <Entypo name={"home"} size ={16} color={'#fff'}/>
                 </View>
                 <Text style={styles.destinationText}> UCLA</Text>
-            </View>
+            </View> */}
         </View>
     )
 }
