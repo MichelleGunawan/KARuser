@@ -7,7 +7,8 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import HomeScreen from '../screens/HomeScreen';
 import DestinationSearch from '../screens/DestinationSearch'
 import SearchResults from '../screens/SearchResults'
-import HomeNavigator from './HomeNavigator'
+import HomeNavigator from './HomeNavigator';
+import OrdersNavigator from './OrdersNavigator';
 import CustomDrawer from "./CustomDrawer";
 
 const Drawer = createDrawerNavigator();
@@ -25,9 +26,8 @@ const RootNavigator = (props) => {
             drawerContent={(props) => 
             (<CustomDrawer{...props}/>)
             }>
-            <Drawer.Screen name="Home" component={HomeNavigator} />
-            <Drawer.Screen name="Ongoing Orders">
-                {()=><DummyScreen name={"Ongoing Orders"}/>}
+            <Drawer.Screen name="Home" component={HomeNavigator}/>
+            <Drawer.Screen name="Orders" component={OrdersNavigator}>
             </Drawer.Screen>
             <Drawer.Screen name="Messages">
                 {()=><DummyScreen name={"Messages"}/>}

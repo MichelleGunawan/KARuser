@@ -9,7 +9,7 @@ const HomeScreen =(props) =>{
     return(
         <View>
             <View style = {{height: Dimensions.get('window').height - 10 }}>
-                <HomeMap />
+                {/* <HomeMap /> */}
             </View>
             
             <View style = {{height: 90, marginTop: -85, backgroundColor: '#f2f2f2', borderTopLeftRadius: 10, borderTopRightRadius:10}}>

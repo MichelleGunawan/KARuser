@@ -40,6 +40,9 @@ const SearchResults =(props) =>{
             return;
         }
 
+        // console.log("type")
+        // console.log(type);
+
         const getPrice = (type) => {  
             if(type==='KarS')
             {
@@ -93,8 +96,17 @@ const SearchResults =(props) =>{
                 )
             );
 
+            const origin={
+                latitude: originPlace.details.geometry.location.lat,
+                longitude: originPlace.details.geometry.location.lng,}
+
+            const destination={
+                latitude: destinationPlace.lat,
+                longitude: destinationPlace.lng,
+            }
+
             console.log(response);
-            navigation.navigate('OrderPage', {id: response.data.createOrder.id, originPlace, destinationPlace,})
+            navigation.navigate('OrderPage', {id: response.data.createOrder.id, origin, destination})
            // Alert.alert("Hurraay", "Your order has been placed!",[{text:"Go home", onPress:() => navigation.navigate('Home')}])
         }
         catch(e){

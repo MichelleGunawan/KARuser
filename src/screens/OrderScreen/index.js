@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { View, Dimensions, Text, Pressable } from "react-native";
 import OrderMap from "../../components/OrderMap";
-import { useRoute } from '@react-navigation/native';
+import { useRoute, useNavigation } from '@react-navigation/native';
 import { API, graphqlOperation } from 'aws-amplify';
 import { getOrder, getCar } from '../../graphql/queries';
 import { onOrderUpdated, onCarUpdated } from './subscriptions';
@@ -13,11 +13,12 @@ const OrderScreen = (props) => {
   const [order, setOrder] = useState(null);
 
   const route = useRoute();
-  console.log(route.params.id);
+  const navigation = useNavigation();
   
   console.log(route.params);
-  const {destinationPlace} = route.params;    
-  const {originPlace} = route.params;
+  const destinationPlace = route.params.destination;    
+  const originPlace = route.params.origin;
+  
 
   // Fetch order on initial render
   useEffect(() => {
@@ -82,8 +83,16 @@ const OrderScreen = (props) => {
     return () => subscription.unsubscribe();
   }, [order])
 
-  const onSubmit = async() =>{       
-    navigation.navigate('Home')  
+  const onSubmit = async() =>{  
+    navigation.reset({
+      index: 0,
+      routes: [{ name: 'Home' }],
+    });     
+    // navigation.reset({
+    //   index: 0,
+    //   routes: [{ name: 'UserOrders' }],
+    // });
+    //navigation.navigate('Home')  
 }
 
     return(
@@ -93,7 +102,7 @@ const OrderScreen = (props) => {
           </View>
           <View style={styles.orderContent}>
             <Text style={styles.orderText}>Order status: {order?.status}</Text>            
-            <Text style={styles.orderText}>Order price: ${(order?.price).toFixed(2)}</Text>
+            <Text style={styles.orderText}>Order price: ${(order?.price.toFixed(2))}</Text>
             <Pressable 
             onPress={onSubmit} 
             style={{backgroundColor:'#9cbe85', padding: 10, marginTop: 15, margin: 10, alignItems:'center'}}>

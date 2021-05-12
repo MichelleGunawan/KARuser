@@ -5,11 +5,7 @@ import MapViewDirections from 'react-native-maps-directions';
 
 const GOOGLE_MAPS_APIKEY = 'AIzaSyBkqeiDhW2DiRb_tZfrueJnyJFc2LecSgY'
 
-const OrderMap = ({ car, origin, destination, originLatitude, originLongitude, destLatitude, destLongitude }) => {
-
-  console.log("originLatitude");
-  console.log(originLatitude);
-  console.log({originLatitude})
+const OrderMap = ({ car, origin, destination}) => {
 
     const getImage = (type) => {
         if(type==='Kar')
@@ -31,13 +27,13 @@ const OrderMap = ({ car, origin, destination, originLatitude, originLongitude, d
     React.useEffect(()=>{
         const originLocation=
         {
-            latitude: origin.details.geometry.location.lat,
-            longitude: origin.details.geometry.location.lng,
+            latitude: origin.latitude,
+            longitude: origin.longitude,
         }
 
         const destinationLocation={
-            latitude: destination.lat,
-            longitude: destination.lng,
+            latitude: destination.latitude,
+            longitude: destination.longitude,
         }        
 
         let mapRegion = {
@@ -68,8 +64,9 @@ const OrderMap = ({ car, origin, destination, originLatitude, originLongitude, d
             strokeColor="#9cbe85"
             />  */}
             <Marker
-            coordinate={{latitude: destination.lat,
-                longitude: destination.lng}}
+            coordinate={{
+                latitude: destination.latitude,
+                longitude: destination.longitude}}
             title={"Destination"}
             pinColor={"tan"}
             />
