@@ -15,7 +15,11 @@
       "function": {
         "karAuthPostConfirmation": {
           "deploymentBucketName": "amplify-kar-dev-214444-deployment",
-          "s3Key": "amplify-builds/karAuthPostConfirmation-65463476737866315531-build.zip"
+          "s3Key": "amplify-builds/karAuthPostConfirmation-73334c4f754d556f6c6e-build.zip"
+        },
+        "CreatePaymentIntent": {
+          "deploymentBucketName": "amplify-kar-dev-214444-deployment",
+          "s3Key": "amplify-builds/CreatePaymentIntent-44634d43497447665246-build.zip"
         }
       },
       "auth": {

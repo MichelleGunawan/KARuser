@@ -13,6 +13,8 @@ import { useRoute, useNavigation } from '@react-navigation/native';
 
 import types from '../../assets/data/types';
 
+import {createPaymentIntent} from '../../graphql/mutations';
+
 const SearchResults =(props) =>{
     const typeState = useState(null);
     
@@ -32,6 +34,32 @@ const SearchResults =(props) =>{
     console.log("distance")
     console.log(distance);
 
+    const getPrice = (type) => {  
+        if(type==='KarS')
+        {
+            return types[0].price;
+        }
+        if(type=="KarX")
+        {
+            return types[2].price
+        }
+        else
+        {
+            return types[1].price;
+        }
+    }
+    
+    console.log("typestate");
+    console.log(typeState[0])
+    const total = (getPrice(typeState[0])*distance)+1;
+
+    //     //handle payment
+    //     const fetchPaymentIntent =() => {
+    //         const response = await API.graphql(
+    //             graphqlOperaion(createPaymentIntent, {total})
+    //         )
+    //     }
+
     const onSubmit = async() =>{       
         
         const[type]=typeState;
@@ -43,20 +71,22 @@ const SearchResults =(props) =>{
         // console.log("type")
         // console.log(type);
 
-        const getPrice = (type) => {  
-            if(type==='KarS')
-            {
-                return types[0].price;
-            }
-            if(type=="KarX")
-            {
-                return types[2].price
-            }
-            else
-            {
-                return types[1].price;
-            }
-        }
+        // const getPrice = (type) => {  
+        //     if(type==='KarS')
+        //     {
+        //         return types[0].price;
+        //     }
+        //     if(type=="KarX")
+        //     {
+        //         return types[2].price
+        //     }
+        //     else
+        //     {
+        //         return types[1].price;
+        //     }
+        // }
+
+        
 
 
         //submit to server

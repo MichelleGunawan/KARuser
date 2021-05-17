@@ -44,6 +44,8 @@ Amplify.configure(config);
 
 import { withAuthenticator } from 'aws-amplify-react-native';
 
+import { StripeProvider } from '@stripe/stripe-react-native';
+
 navigator.geolocation = require('@react-native-community/geolocation');
 
 const App: () => Node = () => {
@@ -91,7 +93,11 @@ const App: () => Node = () => {
   return (
     <>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <Router/>
+      
+      <StripeProvider publishableKey="pk_test_51IqF34G6Jx8dEDvk5FCThtLSeZl7HFqENuCVS7BAMGcLNBSCTliDKZV2AEWcBgn9le2r5nrAhACqiUx0I5oqLXGP00JpQZ7qGB">
+        <Router/>
+      </StripeProvider>
+      
     </>
     // <SafeAreaView style={backgroundStyle}>
     
