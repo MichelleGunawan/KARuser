@@ -2,12 +2,24 @@ import React from "react";
 import {View, Text, Pressable} from "react-native";
 import {Auth} from 'aws-amplify';
 
-import {DrawerContentScrollView, DrawerItemList} from "@react-navigation/drawer";
+import {DrawerContentScrollView, DrawerItemList, DrawerItem} from "@react-navigation/drawer";
+import {StackActions} from "@react-navigation/native";
+
+// import Entypo from 'react-native-vector-icons/Entypo';
+// import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 
 const CustomDrawer = (props) => {
   // console.log("auth")
   // console.log(Auth.user.username)
   // console.log(Auth.user)
+
+  const onPress = (props, name) => {
+    
+    props.navigation.dispatch(StackActions.popToTop());
+    props.navigation.navigate(name);
+
+  }
+
 
   const capitalize = (str) => {  
     return str.charAt(0).toUpperCase() + str.slice(1);
@@ -15,7 +27,7 @@ const CustomDrawer = (props) => {
 
     return(
         <DrawerContentScrollView {...props}>
-      <View style={{backgroundColor: '#d5d5d5', padding: 15}}>
+        <View style={{backgroundColor: '#e4e4e4', padding: 15, top:-5, borderBottomRightRadius:20}}>
 
         {/* User Row */}
         <View style={{
@@ -34,33 +46,74 @@ const CustomDrawer = (props) => {
           }}/> */}
 
           <View>
-            <Text style={{color: '#9cbe85', fontSize: 30}}>{capitalize(Auth.user.username)}</Text>
+            <Text style={{color: '#b5cc88', fontSize: 30}}>{capitalize(Auth.user.username)}</Text>
             {/* <Text style={{color: '#fff'}}>5.00 *</Text> */}
           </View>
         </View>
 
-        {/* Messages Row */}
-        <View style={{
-          borderBottomWidth: 1,
-          borderBottomColor: '#a5a5a5',
+        {/* Home Location Row */}
+        {/* <View style={{
           borderTopWidth: 1,
           borderTopColor: '#a5a5a5',
-          paddingVertical: 10,
-          marginVertical: 10,
+          paddingTop: 10,
+          marginTop: 10,
+          flexDirection: 'row',
         }}>
           <Pressable
-            onPress={() => {console.warn('Messages')}}>
+            onPress={() => {console.warn('App Store: KARGO Driver')}}>
+            <Entypo name='home' size={20} color={'#b5cc88'}/>
+          </Pressable>
+        </View> */}
+
+        {/* Drive KAR Row */}
+        <View style={{
+          borderTopWidth: 1,
+          borderTopColor: '#a5a5a5',
+          paddingTop: 10,
+          marginTop: 10
+        }}>
+          <Pressable
+            onPress={() => {console.warn('App Store: KARGO Driver')}}>
             <Text style={{color: '#a0a0a0', paddingVertical: 5,}}>Drive a KÄR</Text>
           </Pressable>
         </View>
 
-        <Pressable onPress={() => {Auth.signOut()}}>
+        <Pressable style={{
+          borderTopWidth: 1,
+          borderTopColor: '#a5a5a5',
+          paddingTop: 10,
+          marginTop: 10}} 
+          onPress={() => {Auth.signOut()}}>
           <Text style={{color: '#a0a0a0', paddingVertical: 5}}>Logout</Text>
         </Pressable>
 
       </View>
 
-      <DrawerItemList {...props} />
+      <DrawerItem
+        label="Home"
+        activeBackgroundColor="#9cbe85"
+        onPress={() => onPress(props, 'Home')}
+      />
+
+      <DrawerItem
+        label="Orders"
+        activeBackgroundColor="#9cbe85"
+        onPress={() => onPress(props, 'Orders')}
+      />
+
+      <DrawerItem
+        label="Messages"
+        activeBackgroundColor="#9cbe85"
+        onPress={() => onPress(props, 'Messages')}
+      />
+
+      {/* <DrawerItemList {...props} /> */}
+      
+
+      <View style={{marginTop: '135%', marginLeft: "45%"}}> 
+      <Text style={{color:"#a4a4a4"}}>swipe to open drawer</Text>
+      </View>
+
 
     </DrawerContentScrollView>
     )

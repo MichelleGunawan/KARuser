@@ -38,6 +38,8 @@ type Order @model
   destLatitude: Float!
   destLongitude: Float!
 
+  message: String
+
   distance: Float!
   price: Float!
 
@@ -55,11 +57,11 @@ type Subscription {
   onCarUpdated(id: ID!): Car @aws_subscribe(mutations: ["updateCar"])
 }
 
-type Mutation{
-  createPaymentIntent(price: Float!): PaymentIntent!
+type Mutation {
+  createPaymentIntent(totalCoins: Int!): PaymentIntent! @function(name: "CreatePaymentIntent-${env}")
 }
 
-type PaymentIntent{
+type PaymentIntent {
   clientSecret: String!
 }
 

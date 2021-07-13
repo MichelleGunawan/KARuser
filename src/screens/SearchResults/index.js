@@ -14,17 +14,21 @@ import { useRoute, useNavigation } from '@react-navigation/native';
 import types from '../../assets/data/types';
 
 import {createPaymentIntent} from '../../graphql/mutations';
+import { useEffect } from "react";
 
 const SearchResults =(props) =>{
+    const [clientSecret, setClientSecret]= useState(null);
     const typeState = useState(null);
     
 
     const route = useRoute();
     const navigation = useNavigation();
     
-    //console.log(route.params);
+    console.log("route.params")
+    console.log(route.params);
     const {destinationPlace} = route.params;    
     const {originPlace} = route.params;
+    const {message} = route.params;
 
     var d = getDistance(
             {latitude: originPlace.details.geometry.location.lat, longitude: originPlace.details.geometry.location.lng},
@@ -53,12 +57,28 @@ const SearchResults =(props) =>{
     console.log(typeState[0])
     const total = (getPrice(typeState[0])*distance)+1;
 
-    //     //handle payment
-    //     const fetchPaymentIntent =() => {
-    //         const response = await API.graphql(
-    //             graphqlOperaion(createPaymentIntent, {total})
-    //         )
-    //     }
+    //handle payment
+    const totalCents = Math.floor(total*100);
+    
+    useEffect(() => {
+        console.log("here");
+        fetchPaymentIntent();
+      }, []);
+    
+    const fetchPaymentIntent = async() => {
+        const response = await API.graphql(
+            graphqlOperaion(createPaymentIntent, {totalCents})
+        )
+        console.log('response');
+        console.log(response);
+    }
+
+    const initPaymentSheet = async() =>{
+        await fetchPaymentIntent();
+    }
+
+   
+
 
     const onSubmit = async() =>{       
         
@@ -71,20 +91,6 @@ const SearchResults =(props) =>{
         // console.log("type")
         // console.log(type);
 
-        // const getPrice = (type) => {  
-        //     if(type==='KarS')
-        //     {
-        //         return types[0].price;
-        //     }
-        //     if(type=="KarX")
-        //     {
-        //         return types[2].price
-        //     }
-        //     else
-        //     {
-        //         return types[1].price;
-        //     }
-        // }
 
         
 
@@ -92,10 +98,10 @@ const SearchResults =(props) =>{
         //submit to server
         try{
             const userInfo = await Auth.currentAuthenticatedUser();
-            console.log("user info");
-            console.log(userInfo);
-            console.log(originPlace)
-            console.log(destinationPlace);
+            // console.log("user info");
+            // console.log(userInfo);
+            // console.log(originPlace)
+            // console.log(destinationPlace);
 
             const date = new Date();
             
@@ -107,6 +113,8 @@ const SearchResults =(props) =>{
                 
                 destLatitude: destinationPlace.lat,
                 destLongitude: destinationPlace.lng,
+
+                message,
 
                 distance,
                 price: getPrice(type),
@@ -146,11 +154,11 @@ const SearchResults =(props) =>{
 
     return(
         <View style={{display: 'flex', justifyContent: 'space-between'}}>
-        <View style={{height: Dimensions.get('window').height - 360}}>
-            <RouteMap origin={originPlace} destination={destinationPlace} />
+        <View style={{height: (Dimensions.get('window').height)-390}}>
+            {/* <RouteMap origin={originPlace} destination={destinationPlace} /> */}
         </View>
 
-        <View style={{height:400, marginTop: -27}}>
+        <View style={{height:400, marginTop: -27, backgroundColor: "#fff"}}>
             <TransportTypes typeState={typeState} distance={distance} onSubmit={onSubmit}/>
         </View>
         </View>

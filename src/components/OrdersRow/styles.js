@@ -47,8 +47,12 @@ const styles = StyleSheet.create({
     header:{
         fontSize: 20,
         marginBottom: 3,
-        color:"#9cbe85",
+        color:"#b5cc88",
         fontWeight: 'bold'
+    },
+    orderid:{
+        marginLeft: 15,
+        color: "#a4a4a4",
     }
 });
 

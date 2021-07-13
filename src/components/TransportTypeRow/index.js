@@ -10,8 +10,8 @@ const TransportTypeRow =(props) =>{
     console.log(props);
     const{type, distance, onPress, isSelected} = props;
 
-    console.log("transport distance")
-    console.log(distance)
+    // console.log("transport distance")
+    // console.log(distance)
 
     const getImage = () => {
         if(type.type==='Kar')
@@ -50,8 +50,8 @@ const TransportTypeRow =(props) =>{
             </View>
 
             <View style={styles.rightContainer}>
-                <Ionicons name={'pricetag'} size={18} color={'#99d962'}/>
-                <Text style={styles.price}>est. ${((type.price*distance)+1).toFixed(2)}</Text>
+                <Ionicons name={'pricetag'} size={18} color={'#b5cc88'}/>
+                <Text style={styles.price}>${((type.price*distance)+1).toFixed(2)}</Text>
             </View>
         </Pressable>
     )

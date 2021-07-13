@@ -9,6 +9,7 @@ import DestinationSearch from '../screens/DestinationSearch'
 import SearchResults from '../screens/SearchResults'
 import HomeNavigator from './HomeNavigator';
 import OrdersNavigator from './OrdersNavigator';
+import MessageNavigator from './MessageNavigator';
 import CustomDrawer from "./CustomDrawer";
 
 const Drawer = createDrawerNavigator();
@@ -27,17 +28,16 @@ const RootNavigator = (props) => {
             (<CustomDrawer{...props}/>)
             }>
             <Drawer.Screen name="Home" component={HomeNavigator}/>
-            <Drawer.Screen name="Orders" component={OrdersNavigator}>
-            </Drawer.Screen>
-            <Drawer.Screen name="Messages">
-                {()=><DummyScreen name={"Messages"}/>}
-            </Drawer.Screen>
+            <Drawer.Screen name="Orders" component={OrdersNavigator}/>
+            <Drawer.Screen name="Messages"component={MessageNavigator}/>
+                {/* {()=><DummyScreen name={"Messages"}/>}
+            </Drawer.Screen> */}
             {/* <Drawer.Screen name="Your Orders">
                 {()=><DummyScreen name={"Your Orders"}/>}
             </Drawer.Screen>
             <Drawer.Screen name="Settings">
                 {()=><DummyScreen name={"Settings"}/>}
-            </Drawer.Screen> */}
+            </Drawer.Screen> */}        
         </Drawer.Navigator>
         </NavigationContainer>
     )

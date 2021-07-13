@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
     },
     iconContainer:{
-        backgroundColor: '#9cbe85',
+        backgroundColor: '#b5cc88',
         borderRadius: 50,
         padding: 5,
         marginRight: 15,
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     },
     listView:{
         position:'absolute',
-        top: 112,
+        top: 173,
 
     },
     autocompleteContainer:{
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     },
 
     circle:{
-        backgroundColor:'#9cbe85',
+        backgroundColor:'#b5cc88',
         width: 10,
         height: 10,
         position: 'absolute',
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
         borderRadius: 50
     },
     line:{
-        backgroundColor:'#9cbe85',
+        backgroundColor:'#b5cc88',
         width: 1,
         height: 60,
         position: 'absolute',
@@ -58,13 +58,43 @@ const styles = StyleSheet.create({
         left:16,
     },
     square:{
-        backgroundColor:'#9cbe85',
+        backgroundColor:'#b5cc88',
         width: 10,
         height: 10,
         position: 'absolute',
         top: 92,
         left:12,
 
+    },
+    go:{
+        top: 57,
+        left: '94.5%',
+        width: 0,
+        height: 0,
+        backgroundColor: 'transparent',
+        borderStyle: 'solid',
+        borderLeftWidth: 13,
+        borderRightWidth: 13,
+        borderBottomWidth: 21,
+        borderLeftColor: 'transparent',
+        borderRightColor: 'transparent',
+        borderBottomColor:'#b5cc88',
+        transform: [
+            { rotate: '90deg' }
+        ],
+        margin: 0,
+        marginLeft: -6,
+        borderWidth: 0,
+    },
+    inputBox:{
+        backgroundColor: "#ddd",
+        height: 50,
+        padding: 10,
+        margin:10,
+        marginTop: 17,
+        flexDirection: 'row', //line contents horizontally
+        justifyContent: 'space-between',
+        alignItems: 'center',
     },
 
 });

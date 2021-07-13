@@ -2,24 +2,35 @@ const stripe = require('stripe')('pk_test_51IqF34G6Jx8dEDvk5FCThtLSeZl7HFqENuCVS
 
 //redo to accept id, query id, calculate price
 
+// event
+// {
+//   "typeName": "Query" | "Mutation", /* Filled dynamically based on @function usage location */
+//   "fieldName": "createPaymentMethod", /* Filled dynamically based on @function usage location */
+//   "arguments": { amount  /* GraphQL field arguments via $ctx.arguments */ },
+//   "identity": { /* AppSync identity object via $ctx.identity */ },
+//   "source": { /* The object returned by the parent resolver. E.G. if resolving field 'Post.comments', the source is the Post object. */ },
+//   "request": { /* AppSync request object. Contains things like headers. */ },
+//   "prev": { /* If using the built-in pipeline resolver support, this contains the object returned by the previous function. */ },
+// }
+
 exports.handler = async (event) => {
     // TODO implement
     console.log("payment param")
     console.log(event);
 
-    const {order, arguments} = event;
+    const { typeName, arguments } = event;
 
-    if(order!='Mutation'){
-        throw newError('Request is not a mutation');
+    if (typeName !== 'Mutation') {
+        throw new Error('Request is not a mutation');
     }
 
-    if(!arguments?.price){
+    if (!arguments?.totalCoins) {
         throw new Error('Amount argument is required');
     }
 
     // const total = (arguments.price) * (arguments.distance)+1;
     const paymentIntent = await stripe.paymentIntents.create({
-        amount: arguments.total,
+        amount: arguments.totalCoins,
         currency: 'usd',
 
     });

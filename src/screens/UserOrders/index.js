@@ -36,7 +36,8 @@ const UserOrders =(props) =>{
                       {status: { eq: 'NEW'}},
                       {status: { eq: 'PICKING_UP'}}
                     ]
-                  }}}
+                  }}
+                }
                 )
             );
             // console.log("ordersData")

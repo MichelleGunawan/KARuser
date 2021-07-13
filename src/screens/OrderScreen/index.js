@@ -97,15 +97,16 @@ const OrderScreen = (props) => {
 
     return(
         <View>
-          <View style={{height: Dimensions.get('window').height - 100}}>
-            <OrderMap car={car} origin={originPlace} destination={destinationPlace} />
+          <View style={{height: (Dimensions.get('window').height)*.8 }}>
+            {/* <OrderMap car={car} origin={originPlace} destination={destinationPlace} /> */}
           </View>
           <View style={styles.orderContent}>
+          <Text style={styles.orderText}>Order ID: {(route.params.id).substring(0,3)}</Text> 
             <Text style={styles.orderText}>Order status: {order?.status}</Text>            
-            <Text style={styles.orderText}>Order price: ${(order?.price*order?.distance).toFixed(2)}</Text>
+            <Text style={styles.orderText}>Order price: ${((order?.price*order?.distance)+1).toFixed(2)}</Text>
             <Pressable 
             onPress={onSubmit} 
-            style={{backgroundColor:'#9cbe85', padding: 10, marginTop: 15, margin: 10, alignItems:'center'}}>
+            style={{backgroundColor:'#b5cc88', padding: 10, marginTop: 15, margin: 10, alignItems:'center'}}>
                 <Text style={{color:"white", fontWeight: 'bold'}}>
                     KÄRGO again
                 </Text>
