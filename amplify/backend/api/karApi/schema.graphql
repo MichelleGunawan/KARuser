@@ -41,7 +41,11 @@ type Order @model
   message: String
 
   distance: Float!
-  price: Float!
+  carPrice: Float!
+  deliveryPrice: Float!
+  tip: Float
+  orderTotal: Float!
+  
 
   username: String,
 

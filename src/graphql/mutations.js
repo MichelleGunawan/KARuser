@@ -29,7 +29,10 @@ export const createUser = /* GraphQL */ `
           destLongitude
           message
           distance
-          price
+          carPrice
+          deliveryPrice
+          tip
+          orderTotal
           username
           userId
           carId
@@ -84,7 +87,10 @@ export const updateUser = /* GraphQL */ `
           destLongitude
           message
           distance
-          price
+          carPrice
+          deliveryPrice
+          tip
+          orderTotal
           username
           userId
           carId
@@ -139,7 +145,10 @@ export const deleteUser = /* GraphQL */ `
           destLongitude
           message
           distance
-          price
+          carPrice
+          deliveryPrice
+          tip
+          orderTotal
           username
           userId
           carId
@@ -197,7 +206,10 @@ export const createCar = /* GraphQL */ `
           destLongitude
           message
           distance
-          price
+          carPrice
+          deliveryPrice
+          tip
+          orderTotal
           username
           userId
           carId
@@ -256,7 +268,10 @@ export const updateCar = /* GraphQL */ `
           destLongitude
           message
           distance
-          price
+          carPrice
+          deliveryPrice
+          tip
+          orderTotal
           username
           userId
           carId
@@ -315,7 +330,10 @@ export const deleteCar = /* GraphQL */ `
           destLongitude
           message
           distance
-          price
+          carPrice
+          deliveryPrice
+          tip
+          orderTotal
           username
           userId
           carId
@@ -366,7 +384,10 @@ export const createOrder = /* GraphQL */ `
       destLongitude
       message
       distance
-      price
+      carPrice
+      deliveryPrice
+      tip
+      orderTotal
       username
       userId
       user {
@@ -432,7 +453,10 @@ export const updateOrder = /* GraphQL */ `
       destLongitude
       message
       distance
-      price
+      carPrice
+      deliveryPrice
+      tip
+      orderTotal
       username
       userId
       user {
@@ -498,7 +522,10 @@ export const deleteOrder = /* GraphQL */ `
       destLongitude
       message
       distance
-      price
+      carPrice
+      deliveryPrice
+      tip
+      orderTotal
       username
       userId
       user {

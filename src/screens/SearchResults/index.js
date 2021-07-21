@@ -127,10 +127,7 @@ const SearchResults =(props) =>{
         console.log(tip)
 
         const carPrice = getPrice(type);
-        console.log("car price: ")
-        console.log(carPrice)
-        
-
+        const deliveryPrice = carPrice*distance;      
         const orderTotal = Number(carPrice*distance)+1+Number(tip)
         const totalCoins = Math.floor(orderTotal*100);
 
@@ -138,65 +135,7 @@ const SearchResults =(props) =>{
         console.log("total coins: ", totalCoins)
         
 
-        navigation.navigate("CheckoutPage", {originPlace,destinationPlace, message, type, distance, price: orderTotal, totalCoins, carPrice})
-        
-
-
-        //submit to server
-        // try{
-        //     const userInfo = await Auth.currentAuthenticatedUser();
-        //     // console.log("user info");
-        //     // console.log(userInfo);
-        //     // console.log(originPlace)
-        //     // console.log(destinationPlace);
-
-        //     const date = new Date();
-            
-        //     const input = {
-        //         createdAt: date.toISOString(),
-        //         type,
-        //         originLatitude: originPlace.details.geometry.location.lat,
-        //         originLongitude: originPlace.details.geometry.location.lng,
-                
-        //         destLatitude: destinationPlace.lat,
-        //         destLongitude: destinationPlace.lng,
-
-        //         message,
-
-        //         distance,
-        //         price: getPrice(type),
-
-        //         username: userInfo.username,
-
-        //         userId: userInfo.attributes.sub,
-        //         carId: "1",
-        //         status: "NEW",
-        //     };
-
-        //     const response = await API.graphql(
-        //         graphqlOperation(
-        //             createOrder,{
-        //                 input
-        //             }
-        //         )
-        //     );
-
-        //     const origin={
-        //         latitude: originPlace.details.geometry.location.lat,
-        //         longitude: originPlace.details.geometry.location.lng,}
-
-        //     const destination={
-        //         latitude: destinationPlace.lat,
-        //         longitude: destinationPlace.lng,
-        //     }
-
-        //     console.log(response);
-        //     navigation.navigate('OrderPage', {id: response.data.createOrder.id, origin, destination})
-        //    // Alert.alert("Hurraay", "Your order has been placed!",[{text:"Go home", onPress:() => navigation.navigate('Home')}])
-        // }
-        // catch(e){
-        //     console.error(e);
-        // }
+        navigation.navigate("CheckoutPage", {originPlace,destinationPlace, message, type, distance, carPrice, deliveryPrice: parseFloat(deliveryPrice), tip: parseFloat(tip), orderTotal: parseFloat(orderTotal), totalCoins})
     }
 
     return(

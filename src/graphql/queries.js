@@ -19,7 +19,10 @@ export const getUser = /* GraphQL */ `
           destLongitude
           message
           distance
-          price
+          carPrice
+          deliveryPrice
+          tip
+          orderTotal
           username
           userId
           carId
@@ -106,7 +109,10 @@ export const getCar = /* GraphQL */ `
           destLongitude
           message
           distance
-          price
+          carPrice
+          deliveryPrice
+          tip
+          orderTotal
           username
           userId
           carId
@@ -186,7 +192,10 @@ export const getOrder = /* GraphQL */ `
       destLongitude
       message
       distance
-      price
+      carPrice
+      deliveryPrice
+      tip
+      orderTotal
       username
       userId
       user {
@@ -254,7 +263,10 @@ export const listOrders = /* GraphQL */ `
         destLongitude
         message
         distance
-        price
+        carPrice
+        deliveryPrice
+        tip
+        orderTotal
         username
         userId
         user {

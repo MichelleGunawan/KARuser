@@ -32,15 +32,14 @@ const CheckoutScreen =(props) =>{
     const {message} = route.params;
     const {type} = route.params;
     const {distance} = route.params;
-    const {price} = route.params;
-    const {totalCoins} = route.params;
     const {carPrice} = route.params;
+    const {deliveryPrice} = route.params;
+    const {tip} = route.params;
+    const {orderTotal} = route.params;
+    const {totalCoins} = route.params;
 
-    const deliveryPrice = (carPrice*distance)+1;
-    const tip = price - deliveryPrice;
-
-    console.log(tip);
-    console.log(price)
+    console.log(orderTotal)
+    console.log(parseFloat(orderTotal.toFixed(2)))
 
 
     //////////////////////////////////////////////
@@ -123,7 +122,10 @@ const CheckoutScreen =(props) =>{
                 message,
 
                 distance,
-                price,
+                carPrice, 
+                deliveryPrice: parseFloat(deliveryPrice.toFixed(2)),
+                tip: parseFloat(tip.toFixed(2)), 
+                orderTotal: parseFloat(orderTotal.toFixed(2)),
 
                 username: userInfo.username,
 
@@ -196,7 +198,7 @@ const CheckoutScreen =(props) =>{
                 display: 'flex', flexDirection: 'row', justifyContent:'space-between', 
                 }}>
                     <Text style={{fontSize: 20, color: '#a4a4a4', fontWeight: 'bold'}}>Total: </Text>
-                    <Text style={{fontSize: 20, color: '#a4a4a4', fontWeight: 'bold'}}>${price.toFixed(2)}</Text>
+                    <Text style={{fontSize: 20, color: '#a4a4a4', fontWeight: 'bold'}}>${orderTotal.toFixed(2)}</Text>
                 </View>
 
             </View>
