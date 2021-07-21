@@ -19,7 +19,7 @@
         },
         "CreatePaymentIntent": {
           "deploymentBucketName": "amplify-kar-dev-214444-deployment",
-          "s3Key": "amplify-builds/CreatePaymentIntent-5674784268534c424573-build.zip"
+          "s3Key": "amplify-builds/CreatePaymentIntent-377972666f75506c334a-build.zip"
         }
       },
       "auth": {

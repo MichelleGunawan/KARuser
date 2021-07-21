@@ -51,7 +51,7 @@ const TransportTypeRow =(props) =>{
 
             <View style={styles.rightContainer}>
                 <Ionicons name={'pricetag'} size={18} color={'#b5cc88'}/>
-                <Text style={styles.price}>${((type.price*distance)+1).toFixed(2)}</Text>
+                <Text style={styles.price}>est ${Number((type.price*distance)+1).toFixed(2)}</Text>
             </View>
         </Pressable>
     )

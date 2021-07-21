@@ -103,7 +103,7 @@ const OrderScreen = (props) => {
           <View style={styles.orderContent}>
           <Text style={styles.orderText}>Order ID: {(route.params.id).substring(0,3)}</Text> 
             <Text style={styles.orderText}>Order status: {order?.status}</Text>            
-            <Text style={styles.orderText}>Order price: ${((order?.price*order?.distance)+1).toFixed(2)}</Text>
+            <Text style={styles.orderText}>Order price: ${(order?.price).toFixed(2)}</Text>
             <Pressable 
             onPress={onSubmit} 
             style={{backgroundColor:'#b5cc88', padding: 10, marginTop: 15, margin: 10, alignItems:'center'}}>

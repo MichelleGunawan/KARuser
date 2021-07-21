@@ -17,6 +17,7 @@ export const getUser = /* GraphQL */ `
           originLongitude
           destLatitude
           destLongitude
+          message
           distance
           price
           username
@@ -103,6 +104,7 @@ export const getCar = /* GraphQL */ `
           originLongitude
           destLatitude
           destLongitude
+          message
           distance
           price
           username
@@ -182,6 +184,7 @@ export const getOrder = /* GraphQL */ `
       originLongitude
       destLatitude
       destLongitude
+      message
       distance
       price
       username
@@ -249,6 +252,7 @@ export const listOrders = /* GraphQL */ `
         originLongitude
         destLatitude
         destLongitude
+        message
         distance
         price
         username

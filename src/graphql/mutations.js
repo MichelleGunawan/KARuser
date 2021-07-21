@@ -1,6 +1,13 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const createPaymentIntent = /* GraphQL */ `
+  mutation CreatePaymentIntent($totalCoins: Int!) {
+    createPaymentIntent(totalCoins: $totalCoins) {
+      clientSecret
+    }
+  }
+`;
 export const createUser = /* GraphQL */ `
   mutation CreateUser(
     $input: CreateUserInput!
@@ -20,6 +27,7 @@ export const createUser = /* GraphQL */ `
           originLongitude
           destLatitude
           destLongitude
+          message
           distance
           price
           username
@@ -74,6 +82,7 @@ export const updateUser = /* GraphQL */ `
           originLongitude
           destLatitude
           destLongitude
+          message
           distance
           price
           username
@@ -128,6 +137,7 @@ export const deleteUser = /* GraphQL */ `
           originLongitude
           destLatitude
           destLongitude
+          message
           distance
           price
           username
@@ -185,6 +195,7 @@ export const createCar = /* GraphQL */ `
           originLongitude
           destLatitude
           destLongitude
+          message
           distance
           price
           username
@@ -243,6 +254,7 @@ export const updateCar = /* GraphQL */ `
           originLongitude
           destLatitude
           destLongitude
+          message
           distance
           price
           username
@@ -301,6 +313,7 @@ export const deleteCar = /* GraphQL */ `
           originLongitude
           destLatitude
           destLongitude
+          message
           distance
           price
           username
@@ -351,6 +364,7 @@ export const createOrder = /* GraphQL */ `
       originLongitude
       destLatitude
       destLongitude
+      message
       distance
       price
       username
@@ -416,6 +430,7 @@ export const updateOrder = /* GraphQL */ `
       originLongitude
       destLatitude
       destLongitude
+      message
       distance
       price
       username
@@ -481,6 +496,7 @@ export const deleteOrder = /* GraphQL */ `
       originLongitude
       destLatitude
       destLongitude
+      message
       distance
       price
       username

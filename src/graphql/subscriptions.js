@@ -12,6 +12,7 @@ export const onOrderUpdated = /* GraphQL */ `
       originLongitude
       destLatitude
       destLongitude
+      message
       distance
       price
       username
@@ -82,6 +83,7 @@ export const onCarUpdated = /* GraphQL */ `
           originLongitude
           destLatitude
           destLongitude
+          message
           distance
           price
           username
@@ -134,6 +136,7 @@ export const onCreateUser = /* GraphQL */ `
           originLongitude
           destLatitude
           destLongitude
+          message
           distance
           price
           username
@@ -185,6 +188,7 @@ export const onUpdateUser = /* GraphQL */ `
           originLongitude
           destLatitude
           destLongitude
+          message
           distance
           price
           username
@@ -236,6 +240,7 @@ export const onDeleteUser = /* GraphQL */ `
           originLongitude
           destLatitude
           destLongitude
+          message
           distance
           price
           username
@@ -290,6 +295,7 @@ export const onCreateCar = /* GraphQL */ `
           originLongitude
           destLatitude
           destLongitude
+          message
           distance
           price
           username
@@ -345,6 +351,7 @@ export const onUpdateCar = /* GraphQL */ `
           originLongitude
           destLatitude
           destLongitude
+          message
           distance
           price
           username
@@ -400,6 +407,7 @@ export const onDeleteCar = /* GraphQL */ `
           originLongitude
           destLatitude
           destLongitude
+          message
           distance
           price
           username
@@ -447,6 +455,7 @@ export const onCreateOrder = /* GraphQL */ `
       originLongitude
       destLatitude
       destLongitude
+      message
       distance
       price
       username
@@ -509,6 +518,7 @@ export const onUpdateOrder = /* GraphQL */ `
       originLongitude
       destLatitude
       destLongitude
+      message
       distance
       price
       username
@@ -571,6 +581,7 @@ export const onDeleteOrder = /* GraphQL */ `
       originLongitude
       destLatitude
       destLongitude
+      message
       distance
       price
       username

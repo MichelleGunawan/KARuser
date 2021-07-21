@@ -1,4 +1,4 @@
-const stripe = require('stripe')('pk_test_51IqF34G6Jx8dEDvk5FCThtLSeZl7HFqENuCVS7BAMGcLNBSCTliDKZV2AEWcBgn9le2r5nrAhACqiUx0I5oqLXGP00JpQZ7qGB');
+const stripe = require('stripe')('sk_test_51IqF34G6Jx8dEDvkQZTt3alTmb5C1rkSS7mhHo3pR8OOJL06K0AHrxZP1Y4G88R5BzcQ4ftn83VoRQHIbDVmnuL500mUZrvgak');
 
 //redo to accept id, query id, calculate price
 
