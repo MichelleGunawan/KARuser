@@ -20,11 +20,11 @@ const TransportTypeRow =(props) =>{
         }
         if(type.type==='KarS')
         {
-            return require('../../assets/images/karS.png')
+            return require('../../assets/images/karS(white).png')
         }
         if(type.type=="KarX")
         {
-            return require('../../assets/images/karX.png')
+            return require('../../assets/images/karX(white).png')
         }
     }
 

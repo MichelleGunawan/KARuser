@@ -127,7 +127,7 @@ const SearchResults =(props) =>{
         console.log(tip)
 
         const carPrice = getPrice(type);
-        const deliveryPrice = carPrice*distance;      
+        const deliveryPrice = (carPrice*distance)+1;      
         const orderTotal = Number(carPrice*distance)+1+Number(tip)
         const totalCoins = Math.floor(orderTotal*100);
 
@@ -141,7 +141,7 @@ const SearchResults =(props) =>{
     return(
         <View style={{display: 'flex', justifyContent: 'space-between'}}>
         <View style={{height: (Dimensions.get('window').height)-390}}>
-            {/* <RouteMap origin={originPlace} destination={destinationPlace} /> */}
+            <RouteMap origin={originPlace} destination={destinationPlace} />
         </View>
 
         <View style={{height:400, marginTop: -27, backgroundColor: "#fff"}}>

@@ -58,7 +58,7 @@ const Row =(props) =>{
             
             <View style={styles.middleContainer}>
                 <Text style={styles.details}>
-                    {(order.distance).toFixed(1)} mi    ${((order.price * order.distance)+1).toFixed(2)}
+                    {(order.distance).toFixed(1)} mi    ${(order?.orderTotal).toFixed(2)}
                 </Text>
             </View>
 

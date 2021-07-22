@@ -8,13 +8,11 @@ const MessageScreen =(props) =>{
     return(
         <View style = {{}}>
         
-            <View style={{top: 10, left: 10, position: 'absolute'}}>
-                 <DrawerButton/>
-            </View>
+            <DrawerButton/>
            
 
-            <View style = {{width: '80%', marginLeft: 70, marginRight: 'auto', marginTop: 20, marginBottom: '5%'}}>
-               <Text style = {{fontSize: 23, color: '#9cbe85', fontWeight: 'bold'}}>Message your KARGO driver: </Text>
+            <View style = {{width: '80%', marginLeft: 60, marginRight: 'auto', marginTop: 20, marginBottom: '5%'}}>
+               <Text style = {{fontSize: 23, color: '#b5cc88', fontWeight: 'bold'}}>Message your KARGO driver: </Text>
             </View>
 
             <View style={{

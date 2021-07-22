@@ -1,21 +1,25 @@
 import React from "react";
 import {View,Pressable} from "react-native";
 import {useNavigation } from '@react-navigation/native';
+import Entypo from "react-native-vector-icons/Entypo";
 
 const DrawerButton =(props) =>{
     const navigation = useNavigation();
 
+    // onPress = {()=>navigation.openDrawer()} 
+
     return(
         <View>
-            <Pressable 
-            style = {{height: 50, width: 50, borderRadius: 100, backgroundColor: '#fff', }}
-            onPress = {()=>navigation.openDrawer()}>
-                <View style={{ marginTop: 'auto', marginBottom: 'auto', marginRight: 'auto', marginLeft: 'auto', }}>
-                <View style = {{width: 25, height: 3, backgroundColor: '#a4a4a4', marginBottom: 5, marginTop: -1}}></View>
-                <View style = {{width: 25, height: 3, backgroundColor: '#a4a4a4', marginBottom: 5}}></View>
-                <View style = {{width: 25, height: 3, backgroundColor: '#a4a4a4',}}></View>
-                </View>
-            </Pressable>            
+        <Pressable 
+        onPress = {()=>navigation.openDrawer()} 
+            style={{
+            position:'absolute',
+            backgroundColor:'white',
+            padding: 10,
+            borderRadius: 50,
+            top: 10, left: 10}}>
+                <Entypo name={"menu"} size={24} color="#a4a4a4"/>
+            </Pressable>          
         </View>
     )
 }
